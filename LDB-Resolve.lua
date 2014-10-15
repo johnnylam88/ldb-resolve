@@ -113,7 +113,7 @@ end
 function addon:UpdateTankStatus()
 	-- Player is considered to be in a tanking specialization if the passive spell
 	-- "Resolve" is present in the player's spellbook.
-	local spellId = select(2, API_GetSpellBookItemInfo(ResolveSpellName))
+	local spellId = select(2, API_GetSpellBookItemInfo(resolveSpellName))
 	if spellId and tankClass[playerClass] then
 		isTank = true
 		self:RegisterEvent('UNIT_AURA')
