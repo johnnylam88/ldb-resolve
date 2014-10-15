@@ -1,4 +1,4 @@
-## Interface: 50400
+## Interface: 60000
 ## Title: |cffC79C6ELDB|r-Resolve
 ## X-BrokerName: Resolve
 ## Notes: Resolve module for Broker displays.
