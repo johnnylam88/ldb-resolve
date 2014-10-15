@@ -1,0 +1,28 @@
+## Interface: 50400
+## Title: |cffC79C6ELDB|r-Resolve
+## X-BrokerName: Resolve
+## Notes: Resolve module for Broker displays.
+## Notes-deDE: Rache Modul für DataBroker 
+## Author: @project-author@
+## OptionalDeps: Ace3
+## X-Embeds: LibDataBroker-1.1
+## X-Category: Combat
+## Version: @project-version@
+
+## LoadManagers: AddonLoader
+## X-LoadOn-Always: Delayed
+
+# Libraries
+#@no-lib-strip@
+libs\LibStub\LibStub.lua
+libs\CallbackHandler-1.0\CallbackHandler-1.0.lua
+Libs\AceLocale-3.0\AceLocale-3.0.xml
+Libs\AceGUI-3.0\AceGUI-3.0.xml
+Libs\AceConfigRegistry-3.0\AceConfigRegistry-3.0.xml
+Libs\AceConfigDialog-3.0\AceConfigDialog-3.0.xml
+libs\LibDataBroker-1.1.lua
+#@end-no-lib-strip@
+
+Locales.lua
+
+LDB-Resolve.lua
