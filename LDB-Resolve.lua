@@ -64,6 +64,18 @@ function addon:ACTIVE_TALENT_GROUP_CHANGED()
 	self:SetLDBDisplay(self:GetResolve())
 end
 
+function addon:PLAYER_REGEN_ENABLED()
+	if isTank then
+		self:SetLDBDisplay(self:GetResolve())
+	end
+end
+
+function addon:PLAYER_REGEN_DISABLED()
+	if isTank then
+		self:SetLDBDisplay(self:GetResolve())
+	end
+end
+
 function addon:ADDON_LOADED(event, name)
 	if name == addonName then
 		-- Unregister ADDON_LOADED event so that this handler only runs once.
@@ -79,6 +91,8 @@ function addon:PLAYER_LOGIN()
 	if tankClass[playerClass] then
 		self:RegisterEvent('ACTIVE_TALENT_GROUP_CHANGED')
 		self:RegisterEvent('UNIT_LEVEL')
+		self:RegisterEvent('PLAYER_REGEN_DISABLED')
+		self:RegisterEvent('PLAYER_REGEN_ENABLED')
 		self:UpdateTankStatus()
 		self:SetLDBDisplay(self:GetResolve())
 	end
@@ -106,8 +120,13 @@ end
 
 function addon:SetLDBDisplay(value, icon)
 	LDBResolve.icon = icon
-	LDBResolve.value = value or 0
-	LDBResolve.text = LDBResolve.value
+	value = value or 0
+	LDBResolve.value = value
+	if (value > 0) or UnitAffectingCombat("player") then
+		LDBResolve.text = LDBResolve.value.." %"
+	else
+		LDBResolve.text = "LDB-Resolve"
+	end
 end
 
 function addon:UpdateTankStatus()
