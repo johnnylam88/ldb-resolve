@@ -14,9 +14,6 @@ local API_GetSpellInfo = GetSpellInfo
 local API_UnitAura = UnitAura
 local API_UnitClass = UnitClass
 
-local select = select
-local tonumber = tonumber
-
 local addonVersion = API_GetAddOnMetadata(addonName, "Version")
 local addon = API_CreateFrame("Frame", addonName)
 local defaultLDB = {
@@ -54,7 +51,7 @@ end
 
 -- Frame events.
 function LDBResolve:OnTooltipShow()
-	self:AddLine("|cff00ff00"..addonName.." "..addonVersion.."|r")
+	self:AddLine(addonName.." |cff00ff00"..addonVersion.."|r")
 	self:AddLine("|cffffffff"..L['Displays the current value of your Resolve buff'].."|r")
 end
 
